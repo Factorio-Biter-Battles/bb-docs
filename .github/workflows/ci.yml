@@ -1,0 +1,73 @@
+name: CI
+
+# Runs on every pull request and on main. It checks that a page is WELL-FORMED —
+# never that it is TRUE. Green CI is necessary, not sufficient: a human reads every
+# pull request before it is merged, and nothing here can merge anything.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: front matter, links, images, markdownlint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+          tools: none
+
+      - name: Front matter
+        run: php tools/check_frontmatter.php .
+
+      - name: Internal links
+        run: php tools/check_links.php .
+
+      - name: Images
+        run: php tools/check_images.php .
+
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: |
+            content/**/*.md
+            *.md
+
+      - name: No file outside the expected places
+        shell: bash
+        run: |
+          set -euo pipefail
+          # The repository is content. Anything else appearing at the top level is
+          # either a mistake or something that deserves a conversation first.
+          allowed='^(content/|assets/|schema/|tools/|\.github/|docs\.yml$|README\.md$|CONTRIBUTING\.md$|CODE_OF_CONDUCT\.md$|CODEOWNERS$|LICENSE$|Makefile$|composer\.json$|composer\.lock$|\.editorconfig$|\.gitattributes$|\.gitignore$|\.markdownlint-cli2\.jsonc$)'
+          bad=$(git ls-files | grep -Ev "$allowed" || true)
+          if [ -n "$bad" ]; then
+            echo "These files are not in a place this repository expects:"
+            echo "$bad"
+            exit 1
+          fi
+          echo "layout ok"
+
+      - name: No executable bit, no symlink
+        shell: bash
+        run: |
+          set -euo pipefail
+          # A documentation repository has no reason to carry an executable file or a
+          # symlink, and both are classic ways to smuggle something past a reader.
+          bad=$(git ls-files -s | awk '$1 != "100644" {print $1" "$4}')
+          if [ -n "$bad" ]; then echo "unexpected file mode:"; echo "$bad"; exit 1; fi
+          echo "modes ok"

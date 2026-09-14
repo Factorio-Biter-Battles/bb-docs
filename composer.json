@@ -1,0 +1,24 @@
+{
+    "name": "biterbattles/bb-docs",
+    "description": "The player-facing documentation of biterbattles.org, in Markdown.",
+    "type": "project",
+    "license": "CC-BY-SA-4.0",
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "league/commonmark": "^2.4"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "check": [
+            "php tools/check_frontmatter.php .",
+            "php tools/check_links.php .",
+            "php tools/check_images.php ."
+        ],
+        "preview": "php -S 127.0.0.1:8088 -t . tools/preview.php"
+    },
+    "comment": "league/commonmark is a DEV dependency and only powers `make preview`. The checks in tools/ are dependency-free on purpose, and the website has its own copy of the renderer — it never loads code from this repository."
+}

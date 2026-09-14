@@ -1,0 +1,45 @@
+name: Something in the docs is wrong
+description: A number, a rule or a command that does not match the game or the site.
+title: "[wrong] "
+labels: ["factual error"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You do not need to know the right answer to report this. "The site says X, the game
+        did Y last night" is already the whole report.
+  - type: input
+    id: page
+    attributes:
+      label: Which page
+      description: The URL on biterbattles.org, or the file under content/.
+      placeholder: https://biterbattles.org/index.php?r=docs/gameplay-combat
+    validations:
+      required: true
+  - type: textarea
+    id: says
+    attributes:
+      label: What the docs say
+      description: Copy the sentence.
+    validations:
+      required: true
+  - type: textarea
+    id: actually
+    attributes:
+      label: What actually happens
+      description: What you saw instead, and where. A screenshot of the game is gold.
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: When did you see it
+      placeholder: "2026-09-14, captain game, Normal difficulty"
+    validations:
+      required: false
+  - type: checkboxes
+    id: pr
+    attributes:
+      label: Optional
+      options:
+        - label: I would like to fix it myself in a pull request (say so and a maintainer will point you at the file).

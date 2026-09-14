@@ -1,0 +1,26 @@
+name: Something is missing from the docs
+description: A subject nobody wrote down, or a page that does not answer the question you had.
+title: "[missing] "
+labels: ["missing"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: What were you trying to find out
+      description: The question in your own words. "How do I get trusted?" is a perfect issue.
+    validations:
+      required: true
+  - type: textarea
+    id: looked
+    attributes:
+      label: Where did you look
+      description: Which pages you tried. This is how we learn where it should have been.
+    validations:
+      required: false
+  - type: textarea
+    id: answer
+    attributes:
+      label: Do you already know the answer
+      description: If you do, write it here — that is most of a pull request.
+    validations:
+      required: false
