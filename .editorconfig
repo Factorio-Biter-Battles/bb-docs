@@ -1,0 +1,21 @@
+# https://editorconfig.org — keeps diffs about words, not whitespace.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Markdown uses two trailing spaces for a hard line break; we do not, and the
+# linter forbids it (MD009), so trimming is safe here too.
+max_line_length = 90
+
+[Makefile]
+indent_style = tab
+
+[*.php]
+indent_size = 4

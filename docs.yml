@@ -1,0 +1,53 @@
+# BB Docs — section manifest.
+#
+# Sections are the top-level grouping of the documentation: they decide the
+# order of the index page and the label above each page. PAGES are NOT listed
+# here — every page carries its own front matter (title / slug / section /
+# order / summary / updated), so adding a page never means touching this file
+# and two pull requests adding two different pages never conflict.
+#
+# Adding a section is a deliberate act: open an issue first. A page whose
+# `section:` is not one of the ids below fails CI.
+#
+# Parsed by a deliberately small YAML subset reader (tools/lib_frontmatter.php
+# and the website's renderer). Keep it flat: a list of maps of scalars, two
+# spaces of indentation, no anchors, no multi-line scalars.
+
+version: 1
+
+sections:
+  - id: gameplay
+    title: Gameplay
+    icon: "🎯"
+    order: 10
+    summary: How Biter Battles is played — goal, evolution, threat, builds, combat, mistakes.
+
+  - id: bot
+    title: In-game bot
+    icon: "🤖"
+    order: 20
+    summary: askbot — logging in to the website, every in-game command, the Factorio chat commands worth knowing.
+
+  - id: bets
+    title: BB Bets
+    icon: "📈"
+    order: 30
+    summary: The prediction markets — coins, AMM, order book, liquidity, fees, the API.
+
+  - id: captain
+    title: Captain games
+    icon: "⚔️"
+    order: 40
+    summary: The weekly organised PvP — picks, roles, bonus rates, draft analytics.
+
+  - id: league
+    title: BB League & BB Cup
+    icon: "🏆"
+    order: 50
+    summary: The permanent ladder and the tournaments — signing up, matchmaking, Elo, rules, glossary.
+
+  - id: site
+    title: Server & site
+    icon: "🌐"
+    order: 60
+    summary: The server itself, the stats pages, tips for new players, credits.

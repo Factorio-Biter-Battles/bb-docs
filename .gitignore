@@ -1,0 +1,9 @@
+# Nothing generated belongs in this repository.
+.DS_Store
+Thumbs.db
+node_modules/
+*.swp
+*~
+/tools/.preview-cache/
+/vendor/
+composer.lock

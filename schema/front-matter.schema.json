@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Factorio-Biter-Battles/bb-docs/schema/front-matter.schema.json",
+  "title": "BB Docs page front matter",
+  "description": "The YAML block at the very top of every content/**/*.md page, between two lines of ---. Validated in CI by tools/check_frontmatter.php; the website refuses to serve a page whose front matter does not validate.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "slug", "section", "order", "summary", "updated"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80,
+      "description": "Shown as the page heading, in the index and in the browser tab. Sentence case, no trailing period."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 60,
+      "description": "The public URL of the page: /index.php?r=docs/<slug>. FLAT (no slash): the site's router cannot route a slash inside a slug. Unique across the whole repository. Changing a slug breaks every link to it — add the old one to redirect_from instead."
+    },
+    "section": {
+      "type": "string",
+      "enum": ["gameplay", "bot", "bets", "captain", "league", "site"],
+      "description": "One of the section ids declared in docs.yml."
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9999,
+      "description": "Position inside the section, ascending. Leave gaps of 10 so a page can be inserted without renumbering the others."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200,
+      "description": "One sentence, shown under the title on the index. No markup."
+    },
+    "updated": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "The last date a human checked this page against the game or the site. NOT the last edit date (git already knows that, and the site shows it): this is the review date, and it is fine for it to be older than the last commit if the edit was a typo fix."
+    },
+    "icon": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8,
+      "description": "Optional single emoji shown next to the title."
+    },
+    "legacy_anchors": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+      "description": "Anchors of the OLD single-page docs (#sec-coins, #wiki-basics, ...) that used to point at this text. The site uses them to forward stale links to this page. Never reuse one on two pages."
+    },
+    "redirect_from": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+      "description": "Former slugs of this page. The site answers them with a redirect to the current slug."
+    },
+    "sources": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": { "type": "string", "pattern": "^https://[a-z0-9.-]+/[^ \"<>]*$" },
+      "description": "Where this page's text comes from, when it is adapted from someone else's work. CC BY-SA 4.0 is share-alike WITH attribution: a page that reuses a community wiki article names it, and the site prints it in the page footer. https only, one URL per source.",
+      "$comment": "The gameplay and captain pages are adapted from the Free Biter Battles Wiki (freebb.miraheze.org), itself CC BY-SA 4.0 and written by its contributors."
+    },
+    "vars": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+      "description": "Names of the {{placeholders}} this page is allowed to contain. A placeholder is a number or a date the website fills in at render time (a queue size, a lock time) because it changes without an edit. Every {{name}} in the body must be listed here, and every name listed here should appear in the body. Content-only: a placeholder can never produce markup."
+    }
+  }
+}

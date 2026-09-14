@@ -1,0 +1,43 @@
+# CODEOWNERS — who GitHub asks to review what.
+#
+# ############################################################################
+# #  EMPTY ON PURPOSE. FILL IT BEFORE ANNOUNCING THE REPOSITORY.             #
+# #                                                                          #
+# #  GitHub SILENTLY IGNORES a handle that does not exist. A file full of    #
+# #  plausible-looking placeholders is indistinguishable, from the outside,  #
+# #  from having no reviewer at all — and "every pull request is reviewed by #
+# #  a human" is the one promise this repository makes out loud. So the      #
+# #  rules below are commented out rather than pointing at invented names.   #
+# #                                                                          #
+# #  To turn it on: uncomment, replace each <handle> with a real GitHub      #
+# #  login, push, and open a throwaway pull request — the "Code owners"      #
+# #  chip must appear on it. If it does not, a handle is wrong.              #
+# ############################################################################
+#
+# Being listed here does NOT grant merge rights on its own: those come from the
+# repository's branch protection. It means GitHub adds that person as a reviewer
+# automatically when a pull request touches their files.
+#
+# NOTHING IS EVER AUTO-MERGED. Every pull request waits for a human.
+
+# Fallback owner for everything. At least this line has to be real.
+# *                       @<maintainer>
+
+# Sections, so a correction lands on the person who knows the subject. Two or three
+# trusted players are enough; they do not need write access to anything else.
+# /content/gameplay/      @<maintainer> @<gameplay-reviewer>
+# /content/bot/           @<maintainer>
+# /content/bets/          @<maintainer> @<bets-reviewer>
+# /content/captain/       @<maintainer> @<captain-reviewer>
+# /content/league/        @<maintainer>
+# /content/site/          @<maintainer>
+
+# The plumbing: maintainers only. A pull request that changes CI, the schema, the
+# section list or the licence is a repository change, not a documentation change.
+# /docs.yml               @<maintainer>
+# /schema/                @<maintainer>
+# /tools/                 @<maintainer>
+# /.github/               @<maintainer>
+# /Makefile               @<maintainer>
+# /LICENSE                @<maintainer>
+# /CODEOWNERS             @<maintainer>

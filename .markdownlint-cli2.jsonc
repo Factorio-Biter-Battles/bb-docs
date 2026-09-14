@@ -1,0 +1,33 @@
+// markdownlint configuration — tolerant on prose, strict on the things that break
+// the site: heading structure (the page title comes from the front matter, so a
+// page must start at level 2 and never skip a level) and inline HTML (the site
+// strips it, so it would silently vanish).
+{
+  "globs": ["content/**/*.md", "*.md"],
+  "config": {
+    "default": true,
+
+    // --- strict where it matters -------------------------------------------
+    "MD001": true,   // heading levels increment by one — anchors depend on it
+    "MD003": { "style": "atx" },
+    "MD022": true,   // blank line around headings
+    "MD023": true,   // headings start at the beginning of the line
+    "MD024": { "siblings_only": true }, // same heading text allowed in different sections
+    "MD025": { "front_matter_title": "^\\s*title\\s*[:=]" },
+    "MD033": true,   // NO inline HTML: the renderer strips it
+    "MD042": true,   // no empty links
+    "MD051": true,   // link fragments must exist
+
+    // --- tolerant on prose --------------------------------------------------
+    "MD013": { "line_length": 100, "tables": false, "code_blocks": false, "headings": false },
+    "MD004": { "style": "dash" },
+    "MD007": { "indent": 2 },
+    "MD029": { "style": "ordered" },
+    "MD034": false,  // bare URLs are fine in examples
+    "MD036": false,  // bold-as-pseudo-heading happens in tables and lists
+    "MD041": false,  // first line is front matter, not a heading
+    "MD046": { "style": "fenced" },
+    "MD049": { "style": "asterisk" },
+    "MD050": { "style": "asterisk" }
+  }
+}
