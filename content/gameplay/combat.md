@@ -15,7 +15,7 @@ sources: [https://freebb.miraheze.org/wiki/Main_Page]
 - Gun turret: +16% base, +30% per damage upgrade — slightly buffed early, heavily nerfed
   past PPD 4.
 - Defender capsule: +16% base, +30% per upgrade.
-- Shotgun: +30% per upgrade.
+- Shotgun: +60% per upgrade (double the gun turret's per-level bonus).
 - Flamethrower turret: **−80% base**, +6% per refined-flammables (each level 1–7 adds +6%).
   Flamethrower handheld: −60% base, +6% per. Massively nerfed vs vanilla but the AOE + 20%
   slow on biters are still essential.

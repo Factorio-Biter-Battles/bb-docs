@@ -52,7 +52,7 @@ BP libraries / imports are disabled by design — copy-pasting intricate builds 
 game. New players also can't *use* in-game blueprints until they're "trusted":
 
 - **Temporary trust** — any admin can grant in-game; resets on server reboot.
-- **Permatrust** — automatic after **24 hours of total playtime**. Click the fish icon to
+- **Permatrust** — automatic after **12 hours of total playtime**. Click the fish icon to
   see your hours. Tracking started early 2024, so older players may need a manual grant.
 
 ## Essential chat commands

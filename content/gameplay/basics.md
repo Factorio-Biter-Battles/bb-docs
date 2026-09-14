@@ -71,13 +71,13 @@ Bigger sciences punch ridiculously harder than reds:
 
 | Science | Mutagen / flask | vs red |
 | --- | ---: | ---: |
-| Automation (red) | 9 | 1× |
-| Logistic (green) | 23 | 2.6× |
-| Military | 95 | 10.6× |
-| Chemical (blue) | 292 | 32× |
-| Production (purple) | 1050 | 117× |
-| Utility (yellow) | 2205 | 245× |
-| Space (white) | 4375 | 486× |
+| Automation (red) | 11 | 1× |
+| Logistic (green) | 28 | 2.5× |
+| Military | 95 | 8.6× |
+| Chemical (blue) | 345 | 31× |
+| Production (purple) | 1150 | 105× |
+| Utility (yellow) | 2205 | 200× |
+| Space (white) | 4375 | 398× |
 
 Threat farmers: each kill removes a fixed amount of threat from your team's pool:
 
@@ -94,7 +94,10 @@ Threat farmers: each kill removes a fixed amount of threat from your team's pool
 
 - **Reanimation** — biters above 100% evo can reanimate after dying. Chance scales
   linearly: at evo 150% with max threshold 350, you get ~42% reanim rate. **Capped at
-  90%.**
+  90%.** This holds below **330% evo**.
+- **Above 330% evo the biters get a health multiplier instead**, and it doubles every
+  +70% evo: ×10 at 330%, ×20 at 400%, ×40 at 470%, and so on — uncapped. Games that go
+  there are decided by what you can out-produce, not by what you can kill.
 - **Boss biters** — special wave members get **26× normal HP** (config:
   `health_multiplier_boss = 20 × 1.3`). Half of late-game waves are bosses.
 - **3× threat sends past 100% evo** — every science flask sent above 100% evo gives the
