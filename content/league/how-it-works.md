@@ -71,7 +71,8 @@ profile. **Zero-sum:** winners gain exactly what losers lose — the population 
 
 One game moves everyone on both teams by the **same amount**: 32 × (1 − expected win
 chance), clamped between 1 and 31 — beating a stronger lineup pays up to +31, beating a much
-weaker one +1. Team strength = **average Elo** of its players.
+weaker one +1. Team strength = **average Elo** of its players. **1v1 games move half as much**
+(16 × instead of 32 ×, so ±0.5 to ±15.5): the easiest format to farm weighs half.
 
 **Worked example** (a real early game): winners averaged **1010.6**, losers **984.1**.
 Expected win chance = 1 / (1 + 10^((984.1 − 1010.6)/400)) = **53.8%** → Δ = 32 × (1 − 0.538)
@@ -92,7 +93,9 @@ the work later:
 | 600+ | ±1 (floor) | ±31 (cap) |
 
 A game **counts the moment the map locks** and the game starts; leaving mid-game doesn't
-save you — you share your team's result. Every winner also gets **1 coin** per game.
+save you — you share your team's result. Every winner also gets **1 coin** per game. Only a
+**fresh map** counts: a game that started before your match fired (an old map whose silo already
+fell) is never ingested — the server resets and your match starts on a new one.
 
 | Event | Elo |
 | --- | --- |
@@ -104,6 +107,17 @@ save you — you share your team's result. Every winner also gets **1 coin** per
 | Cup / tournament match | 0 — never moves it |
 
 You need **5 played games** to be ranked on the leaderboard — your rating works from game 1.
+
+**Coin gamble.** While the teams get ready, everyone on the server can put coins on a side
+(in-game panel); the pot is shared by the winning side in proportion to their stakes, a bet can
+never win more than the other side put in, and stakes are refunded if the match is cancelled.
+Players can only back their own team. If the **same two line-ups meet again within 90 minutes**,
+the match is played and rated as usual but has **no gamble**.
+
+**Fair play.** One Discord account per League account (the link is required to queue, and a
+Discord can only be linked once). Two accounts seen on the same address never form a 1v1, and
+the same two players cannot meet twice in a row in 1v1. Accounts that play each other from the
+same address are flagged for review; farmed games are reverted, coins included.
 
 ## After the game
 
