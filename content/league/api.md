@@ -28,7 +28,7 @@ Identical to the BB Bets API.
 3. Generate a token on <https://biterbattles.org/science/api-tokens>. It is shown **once**;
    10 active tokens per player maximum.
 
-```
+```text
 Authorization: Bearer bb_<64 hex>
 ```
 
@@ -56,22 +56,22 @@ Over the limit: HTTP 429 with a `Retry-After` header.
 
 ## 2. Conventions
 
-* **Times are UTC**, unlabelled, `YYYY-MM-DD HH:MM:SS` — the format the database stores.
-* **Coins are integer cents** in every `*_cents` field. The same amount is repeated as a
+- **Times are UTC**, unlabelled, `YYYY-MM-DD HH:MM:SS` — the format the database stores.
+- **Coins are integer cents** in every `*_cents` field. The same amount is repeated as a
   float (`total_a`, `amount`, `payout`, …) for convenience. Cents are the truth; the float
   is rounded to 2 decimals.
-* **A League match is not a Cup match.** The League lives in its own tournament round
+- **A League match is not a Cup match.** The League lives in its own tournament round
   (`tt_round.idx >= 95`, label "Ladder"). Cup and BB Masters matches are *not* served by
   these endpoints and a Cup match id returns `404 NOT_FOUND`.
-* **Rosters vs sides.** A match has two rosters, `a` and `b`. Which one spawns *north* is
+- **Rosters vs sides.** A match has two rosters, `a` and `b`. Which one spawns *north* is
   drawn at match prep, so `a` is **not** north:
-  * `side_of_a` — `"north"`, `"south"`, or `null` if the draw is not known yet;
-  * `sides` — `{"north": [...], "south": [...]}`, or `null` before ingest;
-  * `winner` — `{"side": "north"|"south"|null, "team": "a"|"b"|null, "players": [...]|null}`.
-* **Voided games.** A referee cancel / emergency nuke writes `status: "forfeit"` with
+  - `side_of_a` — `"north"`, `"south"`, or `null` if the draw is not known yet;
+  - `sides` — `{"north": [...], "south": [...]}`, or `null` before ingest;
+  - `winner` — `{"side": "north"|"south"|null, "team": "a"|"b"|null, "players": [...]|null}`.
+- **Voided games.** A referee cancel / emergency nuke writes `status: "forfeit"` with
   `score: "cancelled"`; the item carries `voided: true`, no winner and no Elo. Read it as
   "this game did not happen", not as a forfeit win.
-* **`format`** is `count(roster.a) + "v" + count(roster.b)` — `"1v1"` … `"8v8"`.
+- **`format`** is `count(roster.a) + "v" + count(roster.b)` — `"1v1"` … `"8v8"`.
 
 ---
 
