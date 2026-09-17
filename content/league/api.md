@@ -24,8 +24,10 @@ Identical to the BB Bets API.
 
 1. In Factorio chat, type `askbot auth` (or `/spectator-chat askbot auth` during a captain
    game). The bot whispers an 8-character, 10-minute, one-shot code.
-2. Open [the BB Bets page](https://biterbattles.org/index.php?r=science/bb-bets), paste your in-game name + the code.
-3. Generate a token on [the API tokens page](https://biterbattles.org/index.php?r=science/api-tokens). It is shown **once**;
+2. Open [the BB Bets page](https://biterbattles.org/index.php?r=science/bb-bets), paste your
+   in-game name + the code.
+3. Generate a token on [the API tokens page](https://biterbattles.org/index.php?r=science/api-tokens).
+   It is shown **once**;
    10 active tokens per player maximum.
 
 ```text
