@@ -44,7 +44,7 @@ sections:
     title: BB League & BB Cup
     icon: "🏆"
     order: 50
-    summary: The permanent ladder and the tournaments — signing up, matchmaking, Elo, rules, glossary.
+    summary: The permanent ladder and the tournaments — signing up, matchmaking, 2 to 4 teams, rating, rules, glossary.
 
   - id: site
     title: Server & site
