@@ -38,7 +38,7 @@ sections:
     title: Captain games
     icon: "⚔️"
     order: 40
-    summary: The weekly organised PvP — picks, roles, bonus rates, draft analytics.
+    summary: The weekly organised PvP and the BB Captains lobby — picks, roles, bonus rates, draft analytics.
 
   - id: league
     title: BB League & BB Cup

@@ -69,8 +69,10 @@ on team strategy — listen to them or get booted.
 - Difficulty awareness: at 100% effectiveness, 64 white-sci-equivalents push enemies to 50%
   evo (big biters). At HaND (35%) it is ~183. 70% evo = 200 equivalents, 100% = 1200.
 
-To register, watch the captain-game lobby in-game / on Discord. Community-picks games happen
-when no one volunteers — every non-spectator ranks every player and teams are auto-balanced.
+To register for the weekly event, watch the captain-game lobby in-game / on Discord. For
+captains games on demand, between events, use the [BB Captains](bb-captains.md) lobby.
+Community-picks games happen when no one volunteers — every non-spectator ranks every player
+and teams are auto-balanced.
 
 The variants admins can spin up (free items, moats, restricted tech) are described in
 [special games](../gameplay/special-games.md).
