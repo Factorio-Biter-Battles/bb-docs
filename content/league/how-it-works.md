@@ -3,114 +3,103 @@ title: How BB League works
 slug: league
 section: league
 order: 10
-summary: The permanent ladder — signing up from three surfaces, automatic matchmaking, what happens when your game fires, and how League Elo moves.
-updated: 2026-09-14
+summary: The permanent ladder — say from how many players you play, the lobby starts the game, you get a DM, then teams, rating, gamble and fair play.
+updated: 2026-09-21
 icon: "📘"
-vars: [cap1v1, cap2v2, cap3v3, cap4v4, cap5v5, cap7v7, cap8v8]
 ---
+
+The BB League is a permanent pickup ladder on the tournament server. You don't book a match:
+you say when you're free and from how many players you'd play, and the lobby starts a game when
+enough people are around.
+
+## Before your first game
+
+- Log in to the website (type `askbot auth` in a Free BB server's chat, then paste the token on
+  the site).
+- Link your Discord on your profile and keep **Main Discord notifications** on. The lobby
+  reaches you by DM when your game starts; without that, it has no way to call you.
 
 ## Signing up
 
-Sign up from any of the **3 surfaces**: the website (the League panel on the BB League
-page — mouse slider, from/until shown in your local time *and* UTC), the **MAIN** Factorio
-server, or the **TOURNAMENT** server — in game it is the red **BB LEAGUE** button,
-top-left.
+Use the red **BB LEAGUE** button in game (on any server), or the League page on the website.
+Both show the same queue, live. You have **one signup, shared everywhere** — the last action
+wins. Signing up again **updates** your window and keeps your place in the queue; *Leave*, or
+your window running out, removes you.
 
-You must have your **Discord linked** — that is how you get pinged the moment your game
-fires.
+- **I play from N players:** the smallest game you're happy to play, counting everybody. Games
+  are 2 to 16 players: 2, 3, 4, 6, 8, 9, 10, 12, 14, 15 or 16. 5, 7, 11 and 13 can't be split
+  into even teams, so they are never played. 3, 9 and 15 are always played as 3 teams.
+- **When:** a start time and how long you're available, in 10-minute steps, from 30 minutes to
+  6 hours. Times are shown in your own time zone.
 
-You have **one signup, shared across all surfaces** — the last action wins everywhere.
-Clicking *Join* again **updates** your window (you keep your queue spot); *Leave* — or your
-window expiring — removes you.
+The lobby shows how many players are waiting, and your own minimum. It never shows a team
+count in advance: that is decided once the game is found.
 
-Format checkboxes: **3v3** and **5v5**, both on by default; **1v1, 2v2, 4v4, 7v7 and 8v8 are
-opt-in** (off by default). Tick every format you are happy to play — you are pooled for each
-of them at once. At least one must stay ticked.
+⚠ Signing up is a commitment: a no-show costs the whole game for everyone else, hence the
+penalty below.
 
-⚠ Signing up is a commitment: a no-show costs Elo (see below).
+## When your game starts
 
-## Matchmaking — fully automatic
+- The game starts as soon as enough players are waiting whose minimum allows that game size.
+  The game is the biggest size that enough players' minimums allow. It is **first come, first
+  served**: the queue order decides who is drawn, never the rating.
+- Everybody drawn gets a **Discord DM** with the server to join.
+- **Arrival:** all drawn players must be connected within 10 minutes (up to 20 minutes for the
+  biggest games). If someone doesn't make it, the game is cancelled and **only the players who
+  didn't show** lose a little rating (−4). Everyone else keeps their rating; sign up again to
+  be drawn in the next game.
+- **Team count:** if the number of players can be played with more than one number of teams,
+  the players vote for it (see [2, 3 or 4 teams](multi-team.md)). If only one works, there is
+  no vote.
+- **Teams** (2-team games): everybody votes for how teams are made:
+  - **RANDOM**: a coin flip.
+  - **BALANCED**: teams as even as possible by rating, and always the same result for the same
+    players.
+  - **MANUAL**: players pick their own sides.
 
-**First come, first served**, strictly by signup order — no skill matching, no queue
-dodging.
+  A mode wins when two thirds of the players choose it (with 4 players or fewer, everybody). A
+  1v1 skips this step. With 3 or 4 teams the teams are always the balanced split.
+- Players can vote to kick someone during team formation. The game is then cancelled and the
+  others go back to the queue.
 
-A format fires the moment its pool is full among players whose window is open: **1v1 at
-{{cap1v1}}, 2v2 at {{cap2v2}}, 3v3 at {{cap3v3}}, 4v4 at {{cap4v4}}, 5v5 at {{cap5v5}}, 7v7
-at {{cap7v7}}, 8v8 at {{cap8v8}}**. When more than one is full, the **biggest game wins the
-slot** — 8v8 > 7v7 > 5v5 > 4v4 > 3v3, then 2v2, then 1v1 — because only one League game runs
-at a time and the bigger fire gets more of the queue playing. In a **2v2 the 4 players must
-agree unanimously** on the teams (RANDOM needs 4/4; MANUAL is armed by all 4 with an exact
-2/2 split); a **1v1 has no team formation at all** — the sides are drawn the moment both
-players are in. Bigger parties get a little longer to arrive and to decide (up to 20 and 15
-minutes at 8v8).
+In a 2-team game the standard ceremony follows: **2 map rerolls per side**, sides drawn at
+random, map locked, and the prep countdown — skippable when *all* players click go. With 3 or 4
+teams, players are placed on their squares automatically (see
+[2, 3 or 4 teams](multi-team.md)).
 
-**Official matches own the server:** from 120 minutes before a scheduled Cup match until its
-post-game map reset, no League game can start — you'll see a red notice. If your window is
-still open after the official match, your game fires then, automatically.
+**Official Cup matches come first:** the lobby pauses before them, and a League game still
+running close to an official match is voided, with **no rating change** for anyone.
 
-## When your game fires
+You can also be signed up in the [BB Captains](../captain/bb-captains.md) lobby at the same
+time; you are never drawn by both at once.
 
-You get a **Discord DM instantly** (and a connect prompt if you're on the main server). You
-then have **10 minutes** to show up on the tournament server — each absent player loses
-**4 Elo** (the ones who came lose nothing) and the game is cancelled; everyone re-queues by
-re-clicking.
+## Your League rating
 
-Once all players are there: **team formation** — a public panel where the players choose
-**RANDOM** teams (fires at a 2/3 majority) or **MANUAL** (pick your own side, exact split
-required, everyone clicks ARM to confirm; any change resets the arms; 10-minute limit or the
-game is cancelled, no Elo).
+**Individual**, shown in the red button, on the leaderboard and on your profile. Since 21
+September 2026 it is an **OpenSkill** rating that starts at **950**; how it moves is explained
+on its own page: [BB League rating](rating.md).
 
-Then the standard ceremony: **2 map rerolls per side**, sides drawn at random, map locked,
-and the prep countdown — skippable when *all* players click go.
+A game **counts the moment the map locks** and the game starts; leaving mid-game doesn't save
+you — you share your team's result. Only a **fresh map** counts: a game that started before
+your match fired (an old map whose silo already fell) is never ingested — the server resets
+and your match starts on a new one. A game of 25 minutes or more also pays a small
+participation reward.
 
-## Your League Elo
-
-**Individual**, starts at **1000**, shown in the red button, on the leaderboard and on your
-profile. **Zero-sum:** winners gain exactly what losers lose — the population average stays
-1000 forever.
-
-One game moves everyone on both teams by the **same amount**: 32 × (1 − expected win
-chance), clamped between 1 and 31 — beating a stronger lineup pays up to +31, beating a much
-weaker one +1. Team strength = **average Elo** of its players. **1v1 games move half as much**
-(16 × instead of 32 ×, so ±0.5 to ±15.5): the easiest format to farm weighs half.
-
-**Worked example** (a real early game): winners averaged **1010.6**, losers **984.1**.
-Expected win chance = 1 / (1 + 10^((984.1 − 1010.6)/400)) = **53.8%** → Δ = 32 × (1 − 0.538)
-= **±14.78** for all six players. Every rated game's page shows this exact breakdown in its
-*📈 League Elo* section.
-
-**Why early games all move ~16:** while everyone hovers near 1000, team averages can only
-differ by a few points, so the expected chance sticks to ~50% and Δ to ~16. The spread does
-the work later:
-
-| Gap between team averages | Favorite wins | Underdog wins |
-| --- | ---: | ---: |
-| 0 (even lineups) | ±16 | ±16 |
-| 50 | ±13.7 | ±18.3 |
-| 100 | ±11.5 | ±20.5 |
-| 200 | ±7.7 | ±24.3 |
-| 400 | ±2.9 | ±29.1 |
-| 600+ | ±1 (floor) | ±31 (cap) |
-
-A game **counts the moment the map locks** and the game starts; leaving mid-game doesn't
-save you — you share your team's result. Every winner also gets **1 coin** per game. Only a
-**fresh map** counts: a game that started before your match fired (an old map whose silo already
-fell) is never ingested — the server resets and your match starts on a new one.
-
-| Event | Elo |
+| Event | Rating |
 | --- | --- |
-| Win against a stronger lineup | up to +31 |
-| Win against a much weaker lineup | +1 |
-| Loss (mirror of the winners' gain) | −1 to −31 |
+| A rated game (2, 3 or 4 teams) | moves with the result — see [BB League rating](rating.md) |
 | No-show after your game fired | −4 |
 | Game abandoned by both sides | −8 everyone |
+| Game voided before an official match | no change |
 | Cup / tournament match | 0 — never moves it |
 
-You need **5 played games** to be ranked on the leaderboard — your rating works from game 1.
+You need **5 rated games** to be ranked on the leaderboard; before that your rating is shown as
+**provisional**.
 
 **Coin gamble.** While the teams get ready, everyone on the server can put coins on a side
-(in-game panel); the pot is shared by the winning side in proportion to their stakes, a bet can
-never win more than the other side put in, and stakes are refunded if the match is cancelled.
+(in-game panel; in a 3- or 4-team game you bet on the team that finishes 1st); the pot is
+shared by the winning side in proportion to their stakes, a bet can never win more than the
+other side put in, and stakes are refunded if the match is cancelled.
 Players can only back their own team. If the **same two line-ups meet again within 90 minutes**,
 the match is played and rated as usual but has **no gamble**.
 

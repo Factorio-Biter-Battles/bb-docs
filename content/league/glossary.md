@@ -3,11 +3,13 @@ title: Glossary — the words used on the tournament pages
 slug: cup-glossary
 section: league
 order: 30
-summary: Slot, mark, commit, common slot, anchor band, gate, rescue, joker, bye, forfeit, lock — every term the grid and the bot use.
-updated: 2026-09-14
+summary: Slot, mark, commit, anchor band, gate, joker, bye, lock — the Cup grid's terms — and the League's: minimum, provisional, μ and σ, snake split, focus.
+updated: 2026-09-21
 icon: "📖"
 legacy_anchors: [tt-glossary]
 ---
+
+## BB Cup terms
 
 Every term below is used by the availability grid, the team meter and the bot messages.
 
@@ -29,3 +31,15 @@ Every term below is used by the availability grid, the team meter and the bot me
 | **Lock** | **Sunday evening** — the exact instant, in your own timezone, is on the 🔒 lock chip at the top of the Cup page and above the grid. Grids freeze, pairings and match times are computed automatically, everyone gets a DM. After that, only captains can reschedule. |
 | **Blueberry muffin** | Not a tournament term. If you got this far, you read the entire glossary — respect. 🫐 (250g flour, 100g sugar, 2 tsp baking powder, 1 egg, 240ml milk, 80g melted butter, 150g blueberries — 200°C, 22 min.) |
 | **Commitment minimum** | To commit you need **8 marks incl. 4 firm ✓** — or, if your availability is structurally smaller: **all 4 weekend slots** (3 firm), or **all 5 slots of a single weekday** (4 firm). It's an anti-troll floor, never a reason to exclude someone genuinely busy. |
+
+## BB League terms
+
+| Term | What it means |
+| --- | --- |
+| **Minimum** | Your *I play from N players*: the smallest game you're happy to play, counting everybody. See [How BB League works](how-it-works.md). |
+| **Arrival** | The 10 minutes (up to 20 for the biggest games) the drawn players have to connect. A player who doesn't make it is a **no-show** (−4). |
+| **Rating** | Your League number, `950 + 20 × (μ − 3σ)`. See [BB League rating](rating.md). |
+| **μ and σ** | Your estimated skill, and how unsure the system still is about it. |
+| **Provisional** | A rating with fewer than 5 rated games: no rank yet, listed below the ranked players. |
+| **Snake split** | How 3- and 4-team games are formed: players sorted by rating and dealt 1, 2, 3, 4, then 4, 3, 2, 1. See [2, 3 or 4 teams](multi-team.md). |
+| **Focus** | In a 3- or 4-team game, the Feeding panel row that sends 30 % of your science to the enemy teams your team ticked. |
